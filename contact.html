@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact - Martin</title>
+    <link rel="stylesheet" href="stylecontact.css" />
+</head>
+<body>
+
+<header>
+    <div class="menu-icon" id="menuButton">&#9776;</div>
+    <h1>Contact</h1>
+</header>
+
+<nav id="sidebar">
+    <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="cv.html">📄 CV</a></li>
+        <li><a href="projets.html">💻 Projets</a></li>
+        <li><a href="contact.html">📩 Contact</a></li>
+    </ul>
+</nav>
+
+<div class="overlay" id="overlay"></div>
+
+<main class="contact">
+    <div class="contact-card">
+        <h2>Contactez-moi</h2>
+        <p>📍 Ambohijanaka</p>
+        <p>📞 <a href="tel:+261348755546">034 87 555 46</a></p>
+        <p>📞 <a href="tel:+261332202221">033 22 022 21</a></p>
+        <p>✉️ <a href="mailto:martin.dev.mg@gmail.com">martin.dev.mg@gmail.com</a></p>
+        <p>📘 <a href="https://www.facebook.com/profile.php?id=100088863527775" target="_blank">Facebook : Martin TNA</a></p>
+
+        <button id="showFormButton" class="btn">📩 Envoyer un email directement ici</button>
+
+        <form id="contactForm" class="hidden">
+            <input type="text" id="name" placeholder="Votre nom" required>
+            <input type="email" id="email" placeholder="Votre email" required>
+            <textarea id="message" placeholder="Votre message" rows="4" required></textarea>
+            <button type="submit" class="btn">Envoyer</button>
+        </form>
+    </div>
+</main>
+
+<script>
+    const menuButton = document.getElementById('menuButton');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    menuButton.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+    const showFormButton = document.getElementById('showFormButton');
+    const contactForm = document.getElementById('contactForm');
+
+    showFormButton.addEventListener('click', () => {
+        contactForm.classList.toggle('hidden');
+        showFormButton.classList.add('hidden');
+    });
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        const mailtoLink = `mailto:martin.dev.mg@gmail.com?subject=Message de ${encodeURIComponent(name)}&body=Email: ${encodeURIComponent(email)}%0D%0A%0D%0A${encodeURIComponent(message)}`;
+        window.location.href = mailtoLink;
+    });
+</script>
+
+</body>
+</html>

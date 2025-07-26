@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: white;
+    height: 100vh;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+header h1 {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 11;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar ul li {
+    border-bottom: 1px solid #444;
+}
+
+#sidebar ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+#sidebar ul li a:hover {
+    background: #575fcf;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+main.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 60px 20px 20px 20px;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.contact-card h2 {
+    margin-bottom: 10px;
+}
+
+.contact-card p, .contact-card a {
+    color: #ddd;
+    margin: 5px 0;
+    text-decoration: none;
+}
+
+.btn {
+    background: #575fcf;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #4b4bcc;
+    transform: translateY(-2px);
+}
+
+.hidden {
+    display: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    animation: slideDown 0.5s ease-in-out;
+}
+
+form input, form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 14px;
+}
+
+form input::placeholder, form textarea::placeholder {
+    color: #ddd;
+}
+
+form button {
+    background: #34ace0;
+}
+
+form button:hover {
+    background: #227093;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
